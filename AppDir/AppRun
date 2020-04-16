@@ -1,0 +1,4 @@
+#! /bin/bash
+set -e
+cd ${HOME}
+exec ${APPDIR}/opt/application/code $@

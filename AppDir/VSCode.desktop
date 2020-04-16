@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=VSCode
+Comment=Code Editing. Redefined.
+Exec=AppRun --no-sandbox --unity-launch %U
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=icon
+Categories=Utility;TextEditor;Development;IDE;
+MimeType=text/plain;inode/directory;
+StartupWMClass=vscode
+StartupNotify=true
