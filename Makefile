@@ -44,7 +44,7 @@ all:
 	chmod +x $(PWD)/build/AppDir/AppRun
 	chmod +x $(PWD)/build/AppDir/*.desktop
 
-	export ARCH=x86_64 && $(PWD)/bin/appimagetool.AppImage $(PWD)/build/AppDir $(PWD)/Google-Chrome-Beta.AppImage
+	export ARCH=x86_64 && $(PWD)/bin/appimagetool.AppImage $(PWD)/build/AppDir $(PWD)/VSCode.AppImage
 	chmod +x $(PWD)/VSCode.AppImage
 
 clean:
