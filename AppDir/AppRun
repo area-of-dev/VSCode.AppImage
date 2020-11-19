@@ -10,6 +10,7 @@
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+UUC_VALUE=`cat /proc/sys/kernel/unprivileged_userns_clone 2> /dev/null`
 
 set -ex
 
@@ -27,4 +28,10 @@ export XDG_DATA_DIRS=${XDG_DATA_DIRS}
 
 cd ${OWD}
 
-exec ${APPDIR}/vscode/code $@
+
+if [ -z "${UUC_VALUE}" ]
+    then
+        exec ${APPDIR}/vscode/code --no-sandbox "$@"
+    else
+        exec ${APPDIR}/vscode/code "$@"
+    fi
