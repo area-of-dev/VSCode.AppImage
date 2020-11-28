@@ -26,6 +26,16 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 XDG_DATA_DIRS=${XDG_DATA_DIRS}:${APPDIR}/share
 export XDG_DATA_DIRS=${XDG_DATA_DIRS}
 
+
+GDK_PIXBUF_MODULEDIR=${APPDIR}/lib64/gdk-pixbuf-2.0/2.10.0/loaders
+export GDK_PIXBUF_MODULEDIR=${GDK_PIXBUF_MODULEDIR}
+
+mkdir --parents ${HOME}/.config/vscode/gdk-pixbuf-2.0/2.10.0
+GDK_PIXBUF_MODULE_FILE=${HOME}/.config/vscode/gdk-pixbuf-2.0/2.10.0/loaders.cache
+
+export GDK_PIXBUF_MODULE_FILE=${GDK_PIXBUF_MODULE_FILE}
+${APPDIR}/bin/gdk-pixbuf-query-loaders-64 > ${GDK_PIXBUF_MODULE_FILE}
+
 cd ${OWD}
 
 
