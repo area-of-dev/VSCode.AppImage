@@ -15,7 +15,7 @@ all: clean
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir/vscode
 	apprepo --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0
 
-	wget --output-document=$(PWD)/build/build.deb https://go.microsoft.com/fwlink/?LinkID=760868
+	wget --output-document=$(PWD)/build/build.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 	dpkg -x $(PWD)/build/build.deb $(PWD)/build
 
 	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
