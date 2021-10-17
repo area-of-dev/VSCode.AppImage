@@ -24,15 +24,7 @@ all: clean
 	echo 'export LD_LIBRARY_PATH=$${LD_LIBRARY_PATH}' 								>> $(PWD)/build/Boilerplate.AppDir/AppRun
 	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
 	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo 'UUC_VALUE=`cat /proc/sys/kernel/unprivileged_userns_clone 2> /dev/null`' 	>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo 'if [ -z "$${UUC_VALUE}" ]' 												>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '    then' 																>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '        exec $${APPDIR}/vscode/code --no-sandbox "$${@}"' 				>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '    else' 																>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '        exec $${APPDIR}/vscode/code "$${@}"' 								>> $(PWD)/build/Boilerplate.AppDir/AppRun
-	echo '    fi' 																	>> $(PWD)/build/Boilerplate.AppDir/AppRun
+	echo 'exec $${APPDIR}/vscode/code "$${@}"' 								        >> $(PWD)/build/Boilerplate.AppDir/AppRun
 
 	cp --force --recursive $(PWD)/build/usr/share/code*/* $(PWD)/build/Boilerplate.AppDir/vscode
 	
