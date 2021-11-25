@@ -15,8 +15,8 @@ all: clean
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir/vscode
 	apprepo --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0
 
-	wget --output-document=$(PWD)/build/build.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-	dpkg -x $(PWD)/build/build.deb $(PWD)/build
+	wget --output-document=$(PWD)/build/build.rpm https://packages.microsoft.com/yumrepos/vscode/code-1.62.3-1637137194.el7.x86_64.rpm
+	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
 	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
 	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
