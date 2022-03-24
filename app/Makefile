@@ -15,7 +15,8 @@ PWD:=$(shell pwd)
 
 all: clean init
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir/vscode
-	$(PWD)/bin/Apprepo.AppImage --destination=$(PWD)/build appdir boilerplate libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0
+	$(PWD)/bin/Apprepo.AppImage --destination=$(PWD)/build appdir boilerplate \
+			libatk1.0-0 libatk-bridge2.0-0 libgtk-3-0
 
 	wget --output-document=$(PWD)/build/build.rpm https://packages.microsoft.com/yumrepos/vscode/code-1.65.2-1646927812.el7.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
