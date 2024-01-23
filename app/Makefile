@@ -32,10 +32,10 @@ all: clean init
 
 	cp --force --recursive $(PWD)/build/usr/share/code*/* $(PWD)/build/Boilerplate.AppDir/vscode
 	
-	rm --force $(PWD)/build/Boilerplate.AppDir/*.svg
-	rm --force $(PWD)/build/Boilerplate.AppDir/*.desktop
-	rm --force $(PWD)/build/Boilerplate.AppDir/*.png
-	rm --force $(PWD)/build/Boilerplate.AppDir/lib64/libstdc++.so.6*
+	rm --force $(PWD)/build/Boilerplate.AppDir/*.desktop              || true
+	rm --force $(PWD)/build/Boilerplate.AppDir/*.png                  || true
+	rm --force $(PWD)/build/Boilerplate.AppDir/*.svg                  || true
+	rm --force $(PWD)/build/Boilerplate.AppDir/lib64/libstdc++.so.6*  || true
 
 	cp --force $(PWD)/AppDir/*.png 			$(PWD)/build/Boilerplate.AppDir/ || true
 	cp --force $(PWD)/AppDir/*.desktop 		$(PWD)/build/Boilerplate.AppDir/ || true
