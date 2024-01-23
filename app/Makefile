@@ -15,11 +15,11 @@ PWD:=$(shell pwd)
 
 all: clean init
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir/vscode
-	$(PWD)/bin/Apprepo.AppImage --destination=$(PWD)/build appdir boilerplate \
+	$(PWD)/bin/apprepo.AppImage --destination=$(PWD)/build appdir boilerplate \
 	    libgdk-pixbuf2.0-0 libatk1.0-0 libatk-bridge2.0-0 libgtk2.0-0 \
 	    libreadline8 at-spi2-core libpango-1.0-0 libselinux1 libgtk-3-0 libwayland-cursor0
 
-	wget --output-document=$(PWD)/build/build.rpm https://packages.microsoft.com/yumrepos/vscode/code-1.65.2-1646927812.el7.x86_64.rpm
+	wget --output-document=$(PWD)/build/build.rpm https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.85.2-1705561377.el7.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
 	echo '' 																		>> $(PWD)/build/Boilerplate.AppDir/AppRun
@@ -35,6 +35,7 @@ all: clean init
 	rm --force $(PWD)/build/Boilerplate.AppDir/*.svg
 	rm --force $(PWD)/build/Boilerplate.AppDir/*.desktop
 	rm --force $(PWD)/build/Boilerplate.AppDir/*.png
+	rm --force $(PWD)/build/Boilerplate.AppDir/lib64/libstdc++.so.6*
 
 	cp --force $(PWD)/AppDir/*.png 			$(PWD)/build/Boilerplate.AppDir/ || true
 	cp --force $(PWD)/AppDir/*.desktop 		$(PWD)/build/Boilerplate.AppDir/ || true
@@ -46,9 +47,9 @@ all: clean init
 init:
 	mkdir --parents $(PWD)/bin
 
-	wget https://apprepo.de/appimage/download/apprepo \
-		--output-document=$(PWD)/bin/Apprepo.AppImage
-	chmod +x $(PWD)/bin/Apprepo.AppImage
+	wget https://github.com/area-of-dev/apprepo.AppImage/releases/download/latest/apprepo.AppImage \
+		--output-document=$(PWD)/bin/apprepo.AppImage
+	chmod +x $(PWD)/bin/apprepo.AppImage
 
 	wget https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage \
 		--output-document=$(PWD)/bin/appimagetool.AppImage
